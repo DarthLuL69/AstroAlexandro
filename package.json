@@ -12,7 +12,7 @@
     "astro": "^5.2.4"
   },
   "devDependencies": {
-    "tailwindcss": "^2.2.19",
-    "astrojs/tailwind": "https://github.com/withastro/astrojs-tailwind.git"
+    "tailwindcss": "^3.0.24",
+    "@astrojs/tailwind": "^6.0.0"
   }
 }
