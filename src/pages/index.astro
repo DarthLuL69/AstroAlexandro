@@ -1,11 +1,79 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<Navbar />
+
+<main class="max-w-4xl mx-auto px-8 py-12 bg-custom-bg font-averia">
+  <!-- Introduction -->
+  <section class="text-center mb-12 px-8">
+    <h1 class="text-5xl font-bold">Alex</h1>
+    <p class="text-lg italic text-[#4a4a4a]">Alexandro Suciu Peici</p>
+    <h2 class="mt-6 text-4xl font-bold">Hi There &amp; Welcome to My Portfolio!</h2>
+    <img
+      alt="Black and white portrait of a man wearing glasses and thinking while sitting at a desk"
+      class="mt-6 w-full max-w-3xl mx-auto px-8"
+      height="400"
+      src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-kQvHIPUQ42wdaH1jwsa6vbjz/user-Fld36Q2SIYSj0LzXSpuC4Mfs/img-HW71jDsLmGhmduRsGMTs0ey6.png?st=2025-02-05T16%3A55%3A53Z&amp;se=2025-02-05T18%3A55%3A53Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=d505667d-d6c1-4a0a-bac7-5c84a87759f8&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2025-02-05T00%3A30%3A55Z&amp;ske=2025-02-06T00%3A30%3A55Z&amp;sks=b&amp;skv=2024-08-04&amp;sig=Wqo6sFE7gUZjwF6VfEpX4%2BxxPZOIa7AJI7Ug9u4sNcA%3D"
+      width="800"
+    />
+    <p class="mt-6 text-lg leading-relaxed text-justify">
+      I'm Alexandro Suciu Peici, a graphic designer and frontend developer, passionate about crafting visually stunning and functional user experiences. My creative process combines a keen eye for detail, a flair for innovation, and a deep understanding of design principles.
+      <br />
+      <br />
+      I believe that aesthetics are more than just visuals—they're the bridge to intuitive and impactful digital solutions. With expertise in modern frontend technologies and a love for clean, efficient code, I aim to transform ideas into seamless, engaging products.
+      <br />
+      <br />
+      Feel free to check out some of my design and coding projects on GitHub or connect with me on Twitter/X for more updates!
+    </p>
+    <button class="mt-6 px-6 py-2 border border-[#1a1a1a] rounded-full hover:bg-[#1a1a1a] hover:text-white transition">
+      Get in Touch
+    </button>
+  </section>
+
+  <!-- Projects -->
+  <section>
+    <h3 class="text-3xl font-bold mb-6 text-center">Projects</h3>
+    <div class="space-y-6">
+      <div>
+        <h4 class="text-xl font-bold">BrandWave - Creative Branding Platform</h4>
+        <p class="text-lg text-[#4a4a4a]">
+          BrandWave es una plataforma interactiva que permite a startups y pequeñas empresas crear identidades de marca impactantes mediante herramientas intuitivas de diseño de logos, selección de paletas de colores y maquetación visual.
+        </p>
+      </div>
+      <div>
+        <h4 class="text-xl font-bold">Ulverse - Frontend Design Toolkit</h4>
+        <p class="text-lg text-[#4a4a4a]">
+          Ulverse es una biblioteca personalizada que ofrece componentes de interfaz de usuario modernos y funcionales, optimizados para desarrolladores que buscan mejorar sus interfaces con animaciones suaves y sistemas de diseño modulares.
+        </p>
+      </div>
+      <div>
+        <h4 class="text-xl font-bold">Visionary Gallery - Virtual Art Exhibit</h4>
+        <p class="text-lg text-[#4a4a4a]">
+          Visionary Gallery es una experiencia digital que reinventa las galerías de arte tradicionales, presentando obras de manera interactiva con efectos 3D y transiciones dinámicas para una visualización innovadora.
+        </p>
+      </div>
+      <div>
+        <h4 class="text-xl font-bold">CodePalette - Developer Theme Generator</h4>
+        <p class="text-lg text-[#4a4a4a]">
+          CodePalette es una aplicación web que permite a los desarrolladores personalizar temas para editores de código, enfocándose en la productividad y la estética mediante combinaciones de colores armoniosas y opciones avanzadas de personalización.
+        </p>
+      </div>
+    </div>
+    <div class="text-center">
+      <button class="mt-6 px-6 py-2 border border-[#1a1a1a] rounded-full hover:bg-[#1a1a1a] hover:text-white transition">
+        View all projects
+      </button>
+    </div>
+  </section>
+</main>
+
+<Footer />
+
+<script src="/scripts/menu-toggle.js" defer></script>
+<script src="/scripts/darkmode.js" defer></script>

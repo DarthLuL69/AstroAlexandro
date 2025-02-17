@@ -1,0 +1,44 @@
+---
+export let darkMode = false;
+
+function toggleDarkMode() {
+  darkMode = !darkMode;
+  document.documentElement.classList.toggle('dark', darkMode);
+}
+---
+
+<nav class="flex justify-between items-center px-10 py-4">
+  <!-- Mobile View -->
+  <div class="md:hidden relative">
+    <button id="menuButton" class="p-4 bg-white border border-black shadow-lg">
+      <img src="./Menu.png" alt="Menu" class="w-6 h-6">
+    </button>
+    <div id="dropdownMenu" class="hidden absolute top-16 left-0 w-48 bg-white border border-black shadow-lg">
+      <ul class="text-center">
+        <li class="py-2 text-lg font-bold border-b border-black"><a href="/">Home</a></li>
+        <li class="py-2 text-lg font-bold border-b border-black"><a href="/projects">Projects</a></li>
+        <li class="py-2 text-lg font-bold"><a href="/contacto">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Desktop View -->
+  <div class="hidden md:flex space-x-10">
+    <a href="/" class="text-black font-serif text-lg font-bold">Home</a>
+    <a href="/projects" class="text-black font-serif text-lg font-bold">Projects</a>
+    <a href="/contacto" class="text-black font-serif text-lg font-bold">Contact</a>
+  </div>
+
+  <button onclick="toggleDarkMode()" class="w-6 h-6 bg-black rounded-full"></button>
+</nav>
+
+<script>
+  const menuButton = document.getElementById('menuButton');
+  const dropdownMenu = document.getElementById('dropdownMenu');
+
+  if (menuButton && dropdownMenu) {
+    menuButton.addEventListener('click', () => {
+      dropdownMenu.classList.toggle('hidden');
+    });
+  }
+</script>
