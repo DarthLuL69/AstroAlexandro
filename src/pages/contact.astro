@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<Layout title="Contact with me!">
+  <Header />
+  <main class="max-w-3xl mx-auto px-6 pt-8">
+    <div class="text-center max-w-2xl mx-auto py-16">
+      <h1 class="text-5xl font-bold font-serif mb-6">Contact with me!</h1>
+      <p class="text-lg leading-relaxed mb-8 font-serif">
+        Hello! I'm Alexandro Suciu Peici, a graphic designer and frontend developer. If you have any questions, are interested in collaborating on a project, or simply want to say hi, feel free to get in touch with me. You can send me an email at 
+        <a 
+          href="mailto:alexandrosuciupeici@gmail.com" 
+          class="underline hover:opacity-80 transition-opacity"
+        >
+          alexandrosuciupeici@gmail.com
+        </a> 
+        or fill out the form below. I look forward to hearing from you soon!
+      </p>
+      
+      <form class="space-y-4">
+        <input 
+          type="email" 
+          placeholder="Gmail..." 
+          class="w-full border border-[rgb(var(--color-text-main))] rounded-full px-4 py-3 text-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-[rgb(var(--color-text-main))]"
+        />
+        <textarea 
+          placeholder="Whats the deal!..." 
+          rows="5" 
+          class="w-full border border-[rgb(var(--color-text-main))] rounded-3xl px-4 py-3 text-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-[rgb(var(--color-text-main))]"
+        ></textarea>
+        <button 
+          type="submit" 
+          class="px-8 py-2 border border-[rgb(var(--color-text-main))] rounded-full text-lg hover:bg-[rgb(var(--color-text-main))] hover:text-[rgb(var(--color-bg-main))] transition"
+        >
+          Send
+        </button>
+      </form>
+    </div>
+  </main>
+  <Footer />
+</Layout>
