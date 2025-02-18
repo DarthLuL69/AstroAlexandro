@@ -17,27 +17,55 @@ const { Content } = await project.render();
 ---
 <Layout title={project.data.title}>
   <Header />
-  <main class="max-w-3xl mx-auto px-6 py-8">
-    <article class="prose prose-lg">
-      <h1 class="text-lg font-bold font-serif mb-2">{project.data.title}</h1>
-      <p class="text-sm mb-6 text-[rgb(var(--color-text-main))/0.7]">
-        {project.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+  <main class="max-w-3xl mx-auto px-6">
+    <article class="font-serif leading-relaxed">
+      <h1 class="text-lg font-bold mb-2">
+        {project.data.title}
+      </h1>
+      <p class="text-sm text-[rgb(var(--color-text-main))/0.6] mb-6">
+        {project.data.date.toLocaleDateString('en-US', { 
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        })}
       </p>
       
       <div class="mb-6">
         <img 
           src={project.data.image} 
           alt={project.data.title}
-          class="w-full"
+          class="w-full rounded"
           width="600"
           height="400"
         />
       </div>
 
-      <div class="font-serif">
+      <p class="mb-6">
+        <strong class="font-serif">
+          {project.data.title.split('-')[0].trim()}
+        </strong>
+        {project.data.description}
+      </p>
+
+      <div class="prose prose-lg prose-headings:text-lg prose-headings:font-bold prose-headings:mb-4 
+                  prose-p:mb-6 prose-ul:mb-6 prose-ul:list-disc prose-ul:list-inside
+                  prose-strong:font-bold max-w-none">
         <Content />
       </div>
     </article>
   </main>
   <Footer />
 </Layout>
+
+<style>
+  /* Override Markdown styles to match design */
+  :global(.prose h2) {
+    margin-top: 2rem;
+  }
+  :global(.prose li) {
+    margin-top: 0.5rem;
+  }
+  :global(.prose li strong) {
+    margin-right: 0.25rem;
+  }
+</style>

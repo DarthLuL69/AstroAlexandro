@@ -12,7 +12,8 @@
     "@astrojs/markdown-remark": "^6.1.0",
     "@fontsource-variable/inter": "^5.1.1",
     "@fontsource-variable/newsreader": "^5.1.1",
-    "astro": "^5.2.4"
+    "astro": "^5.2.4",
+    "@tailwindcss/typography": "^0.5.10"
   },
   "devDependencies": {
     "@astrojs/tailwind": "^6.0.0",

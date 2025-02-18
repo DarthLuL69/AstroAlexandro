@@ -16,11 +16,26 @@ module.exports = {
           main: 'rgb(var(--color-border-main) / <alpha-value>)',
         },
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            color: 'rgb(var(--color-text-main))',
+            'h1, h2, h3, h4': {
+              color: 'rgb(var(--color-text-main))',
+            },
+            'ul > li::marker': {
+              color: 'rgb(var(--color-text-main))',
+            },
+          },
+        },
+      },
       fontFamily: {
         sans: ['Inter Variable', 'sans-serif'],
         serif: ['Newsreader Variable', 'serif'],
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 }
