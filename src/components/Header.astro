@@ -1,44 +1,66 @@
 ---
+const navItems = [
+  { href: '/', text: 'Home' },
+  { href: '/proyects', text: 'Projects' },
+  { href: '/contact', text: 'Contact' }
+];
 ---
-<div class="max-w-3xl mx-auto px-6 relative">
+<div class="max-w-3xl mx-auto px-4 sm:px-6 relative">
   <button
     id="theme-toggle"
     class="w-4 h-4 bg-[rgb(var(--color-text-main))] rounded-full fixed top-6 right-6 z-50 transition-transform hover:scale-125"
     aria-label="Toggle dark mode"
-  >
-  </button>
+  />
   
   <header class="py-8">
-    <nav class="flex space-x-6">
-      <a 
-        href="/" 
-        class="text-[rgb(var(--color-text-main))] hover:opacity-80"
+    <nav class="relative">
+      {/* Mobile menu button */}
+      <button
+        id="mobile-menu-button"
+        class="md:hidden text-[rgb(var(--color-text-main))] p-2"
+        aria-label="Toggle menu"
       >
-        Home
-      </a>
-      <a 
-        href="/proyects" 
-        class="text-[rgb(var(--color-text-main))] hover:opacity-80"
+        <img
+          id="menu-icon"
+          src="/src/assets/Menu.png"
+          alt="Menu"
+          class="w-6 h-6 transition-transform duration-300 dark:invert"
+        />
+      </button>
+
+      {/* Navigation links */}
+      <div
+        id="nav-menu"
+        class="md:block hidden absolute left-0 right-0 top-full mt-2 py-2 bg-[rgb(var(--color-bg-main))] border border-[rgb(var(--color-text-main))] rounded-lg md:border-none md:relative md:bg-transparent md:mt-0 md:py-0 transition-all duration-300"
       >
-        Projects
-      </a>
-      <a 
-        href="/contact" 
-        class="text-[rgb(var(--color-text-main))] hover:opacity-80"
-      >
-        Contact
-      </a>
+        <div class="flex flex-col md:flex-row md:space-x-6">
+          {navItems.map(item => (
+            <a 
+              href={item.href} 
+              class="px-4 py-2 md:py-0 text-[rgb(var(--color-text-main))] hover:opacity-80"
+            >
+              {item.text}
+            </a>
+          ))}
+        </div>
+      </div>
     </nav>
   </header>
 </div>
 
 <script>
   const themeToggle = document.getElementById('theme-toggle');
-  
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const navMenu = document.getElementById('nav-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  let isMenuOpen = false;
+
+  // Theme toggle functionality
   themeToggle?.addEventListener('click', () => {
     document.documentElement.classList.toggle('dark');
-    const isDark = document.documentElement.classList.contains('dark');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    localStorage.setItem('theme', 
+      document.documentElement.classList.contains('dark') ? 'dark' : 'light'
+    );
   });
 
   // Initialize theme
@@ -47,49 +69,47 @@
     document.documentElement.classList.add('dark');
   }
 
-  // Mobile menu functionality
-  const mobileMenuButton = document.getElementById('mobile-menu-button');
-  const navMenu = document.getElementById('nav-menu');
-  const menuIcon = document.getElementById('menu-icon');
-  let isMenuOpen = false;
-
-  mobileMenuButton?.addEventListener('click', () => {
+  // Updated mobile menu functionality
+  const toggleMenu = () => {
     isMenuOpen = !isMenuOpen;
     
     if (isMenuOpen) {
-      navMenu?.classList.remove('hidden', 'opacity-0', '-translate-y-2');
-      navMenu?.classList.add('opacity-100', 'translate-y-0');
-      menuIcon?.classList.add('rotate-90');
+      navMenu?.classList.remove('hidden');
+      menuIcon?.classList.add('rotate-180');
     } else {
-      navMenu?.classList.remove('opacity-100', 'translate-y-0');
-      navMenu?.classList.add('opacity-0', '-translate-y-2');
-      menuIcon?.classList.remove('rotate-90');
-      // Add a delay before hiding the menu to allow the animation to complete
-      setTimeout(() => {
-        navMenu?.classList.add('hidden');
-      }, 300);
+      menuIcon?.classList.remove('rotate-180');
+      navMenu?.classList.add('hidden');
     }
+  };
+
+  mobileMenuButton?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleMenu();
   });
 
   // Close menu when clicking outside
   document.addEventListener('click', (event) => {
     const target = event.target as HTMLElement;
     if (isMenuOpen && !target.closest('#mobile-menu-button') && !target.closest('#nav-menu')) {
-      mobileMenuButton?.click();
+      toggleMenu();
     }
   });
 
   // Close menu when window is resized to desktop view
   window.addEventListener('resize', () => {
     if (window.innerWidth >= 768 && isMenuOpen) {
-      mobileMenuButton?.click();
+      toggleMenu();
     }
   });
 </script>
 
 <style>
-  /* Add smooth rotation animation for menu icon */
   #menu-icon {
     transform-origin: center;
+  }
+
+  #nav-menu {
+    transform-origin: top;
+    will-change: transform, opacity;
   }
 </style>
