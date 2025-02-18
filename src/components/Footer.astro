@@ -31,24 +31,39 @@ const year = new Date().getFullYear();
     <p class="text-[rgb(var(--color-text-main))]">
       © {year} Alexandro Suciu Peici. All rights reserved.
     </p>
-    <nav class="flex space-x-6">
+    <nav class="flex space-x-4 items-center">
       <a 
-        href="https://github.com/yourusername" 
-        class="text-[rgb(var(--color-text-main))] hover:underline font-serif"
+        href="https://facebook.com/yourusername" 
+        class="text-[rgb(var(--color-text-main))] hover:opacity-80 transition-opacity"
+        aria-label="Facebook Profile"
       >
-        GitHub
+        <img 
+          src="/images/Facebook.png" 
+          alt="Facebook" 
+          class="w-6 h-6 grayscale hover:grayscale-0 transition-all duration-300" 
+        />
       </a>
       <a 
-        href="https://linkedin.com/in/yourusername" 
-        class="text-[rgb(var(--color-text-main))] hover:underline font-serif"
+        href="https://instagram.com/alexr_skrr" 
+        class="text-[rgb(var(--color-text-main))] hover:opacity-80 transition-opacity"
+        aria-label="Instagram Profile"
       >
-        LinkedIn
+        <img 
+          src="/images/Instagram.png" 
+          alt="Instagram" 
+          class="w-6 h-6 grayscale hover:grayscale-0 transition-all duration-300" 
+        />
       </a>
       <a 
         href="https://twitter.com/yourusername" 
-        class="text-[rgb(var(--color-text-main))] hover:underline font-serif"
+        class="text-[rgb(var(--color-text-main))] hover:opacity-80 transition-opacity"
+        aria-label="Twitter Profile"
       >
-        Twitter
+        <img 
+          src="/images/Twiter.png" 
+          alt="Twitter" 
+          class="w-6 h-6 grayscale hover:grayscale-0 transition-all duration-300" 
+        />
       </a>
     </nav>
   </div>

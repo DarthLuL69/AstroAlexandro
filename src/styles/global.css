@@ -1,20 +1,23 @@
-/* Remove the direct imports and let's import from Layout.astro instead */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
     :root {
-        --color-text-main: 26 26 26; /* #1a1a1a */
-        --color-bg-main: 245 245 233; /* #f5f5e9 */
-        --color-bg-muted: 238 238 226;
-        --color-border-main: 26 26 26;
+        --color-text-main: 17, 24, 39;
+        --color-bg-main: 255, 254, 241;  /* Cream background for light mode */
+        --color-border-main: 229, 231, 235;
     }
     
     html.dark {
-        --color-text-main: 245 245 233;
-        --color-bg-main: 26 26 26;
-        --color-bg-muted: 38 38 38;
-        --color-border-main: 245 245 233;
+        --color-text-main: 255, 255, 255;  /* White text for dark mode */
+        --color-bg-main: 26, 26, 26;       /* Original dark background */
+        --color-bg-muted: 38, 38, 38;
+        --color-border-main: 255, 255, 255;
+    }
+
+    /* Global text color that respects dark mode */
+    body {
+        @apply bg-[rgb(var(--color-bg-main))] text-[rgb(var(--color-text-main))];
     }
 }

@@ -12,24 +12,21 @@ try {
   console.log('No projects found or error loading projects');
 }
 ---
-<div class="space-y-12">
+<div class="grid gap-12">
   {projects.length > 0 ? (
     projects.map((project) => (
-      <a 
-        href={`/proyects/${project.slug}`}
-        class="block group"
-      >
-        <article class="space-y-2">
-          <h2 class="text-2xl font-bold font-serif group-hover:underline">
+      <a href={`/proyects/${project.slug}`} class="block group">
+        <article class="transform transition-all duration-300 hover:-translate-y-1 hover:cursor-pointer">
+          <h3 class="text-2xl font-bold mb-3 text-[rgb(var(--color-text-main))] group-hover:underline">
             {project.data.title}
-          </h2>
-          <p class="text-[rgb(var(--color-text-main))/0.8] font-serif leading-relaxed">
+          </h3>
+          <p class="text-[rgb(var(--color-text-main))] text-lg">
             {project.data.description}
           </p>
         </article>
       </a>
     ))
   ) : (
-    <p class="text-center text-lg font-serif">No projects available yet.</p>
+    <p class="text-center text-lg font-serif text-[rgb(var(--color-text-main))]">No projects available yet.</p>
   )}
 </div>

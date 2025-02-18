@@ -1,7 +1,6 @@
 ---
-// Add dark mode toggle functionality
 ---
-<div class="relative">
+<div class="max-w-3xl mx-auto px-6 relative">
   <button
     id="theme-toggle"
     class="w-4 h-4 bg-[rgb(var(--color-text-main))] rounded-full fixed top-6 right-6 z-50 transition-transform hover:scale-125"
@@ -9,46 +8,23 @@
   >
   </button>
   
-  <header class="w-full max-w-3xl mx-auto px-6 py-4 mb-16">
-    {/* Mobile Menu Button */}
-    <button 
-      id="mobile-menu-button" 
-      class="md:hidden w-8 h-8 flex items-center justify-center"
-      aria-label="Toggle menu"
-    >
-      <img 
-        src="/src/assets/Menu.png" 
-        alt="Menu" 
-        class="w-6 h-6 transition-transform duration-300"
-        id="menu-icon"
-      />
-    </button>
-
-    {/* Navigation */}
-    <nav 
-      id="nav-menu" 
-      class="hidden md:flex md:space-x-6 absolute md:static left-0 right-0 top-full 
-        bg-[rgb(var(--color-bg-main))] md:bg-transparent
-        py-4 md:py-0 px-6 md:px-0
-        opacity-0 md:opacity-100
-        transform -translate-y-2 md:translate-y-0
-        transition-all duration-300 ease-out"
-    >
+  <header class="py-8">
+    <nav class="flex space-x-6">
       <a 
         href="/" 
-        class="text-lg font-serif text-[rgb(var(--color-text-main))] hover:underline block md:inline-block py-2 md:py-0"
+        class="text-[rgb(var(--color-text-main))] hover:opacity-80"
       >
         Home
       </a>
       <a 
         href="/proyects" 
-        class="text-lg font-serif text-[rgb(var(--color-text-main))] hover:underline block md:inline-block py-2 md:py-0"
+        class="text-[rgb(var(--color-text-main))] hover:opacity-80"
       >
         Projects
       </a>
       <a 
         href="/contact" 
-        class="text-lg font-serif text-[rgb(var(--color-text-main))] hover:underline block md:inline-block py-2 md:py-0"
+        class="text-[rgb(var(--color-text-main))] hover:opacity-80"
       >
         Contact
       </a>
