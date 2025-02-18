@@ -14,7 +14,6 @@ const navItems = [
   
   <header class="py-8">
     <nav class="relative">
-      {/* Mobile menu button */}
       <button
         id="mobile-menu-button"
         class="md:hidden text-[rgb(var(--color-text-main))] p-2"
@@ -28,7 +27,6 @@ const navItems = [
         />
       </button>
 
-      {/* Navigation links */}
       <div
         id="nav-menu"
         class="md:block hidden absolute left-0 right-0 top-full mt-2 py-2 bg-[rgb(var(--color-bg-main))] border border-[rgb(var(--color-text-main))] rounded-lg md:border-none md:relative md:bg-transparent md:mt-0 md:py-0 transition-all duration-300"
@@ -55,7 +53,6 @@ const navItems = [
   const menuIcon = document.getElementById('menu-icon');
   let isMenuOpen = false;
 
-  // Theme toggle functionality
   themeToggle?.addEventListener('click', () => {
     document.documentElement.classList.toggle('dark');
     localStorage.setItem('theme', 
@@ -63,13 +60,11 @@ const navItems = [
     );
   });
 
-  // Initialize theme
   if (localStorage.getItem('theme') === 'dark' ||
       (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
     document.documentElement.classList.add('dark');
   }
 
-  // Updated mobile menu functionality
   const toggleMenu = () => {
     isMenuOpen = !isMenuOpen;
     
@@ -87,7 +82,6 @@ const navItems = [
     toggleMenu();
   });
 
-  // Close menu when clicking outside
   document.addEventListener('click', (event) => {
     const target = event.target as HTMLElement;
     if (isMenuOpen && !target.closest('#mobile-menu-button') && !target.closest('#nav-menu')) {
@@ -95,7 +89,6 @@ const navItems = [
     }
   });
 
-  // Close menu when window is resized to desktop view
   window.addEventListener('resize', () => {
     if (window.innerWidth >= 768 && isMenuOpen) {
       toggleMenu();

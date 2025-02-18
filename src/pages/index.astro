@@ -4,13 +4,12 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Proyects from '../components/Proyects.astro';
 
-const featuredProjects = []; // Placeholder for future collection integration
-const featuredPosts = []; // Placeholder for future collection integration
+const featuredProjects = []; 
+const featuredPosts = []; 
 ---
 <Layout title="Mi Portfolio Personal">
   <Header />
   <main class="max-w-3xl mx-auto px-4 sm:px-6 pt-4 sm:pt-8">
-    {/* Hero Section */}
     <section class="mb-8 sm:mb-16">
       <h1 class="text-4xl sm:text-6xl font-bold font-serif mb-2 text-[rgb(var(--color-text-main))]">
         Alex
@@ -45,7 +44,6 @@ const featuredPosts = []; // Placeholder for future collection integration
       </a>
     </section>
 
-    {/* Projects Section */}
     <section class="py-8 sm:py-16">
       <h2 class="text-2xl font-bold font-serif mb-8 text-[rgb(var(--color-text-main))]">Projects</h2>
       <Proyects />
@@ -59,11 +57,9 @@ const featuredPosts = []; // Placeholder for future collection integration
       </div>
     </section>
 
-    {/* Optional Blog Posts Section */}
     {featuredPosts?.length > 0 && (
       <section class="mb-16 sm:mb-24">
         <h2 class="mb-12 text-xl font-serif italic sm:mb-16 sm:text-2xl">Writing</h2>
-        {/* Add your PostPreview component here when ready */}
         <div class="mt-12 sm:mt-16 text-center">
           <a 
             href="/blog" 
